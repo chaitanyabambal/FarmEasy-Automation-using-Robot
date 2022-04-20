@@ -9,16 +9,80 @@ Library  SeleniumLibrary
 ${url}  http://127.0.0.1:5000/
 ${email}  abc@gmail.com
 ${password}  123
+${username}  admin
+${pasword}  12345
+${productid}  14
+${pid}  14
+${bname}  Kurkure
+${pname}  Fresho
+${price}  20
 
 *** Test Cases ***
+admin login page test case
+    [Documentation]  admin login
+    [Tags]  admin
+    open browser  ${url}  chrome
+    maximize browser window
+    sleep  2s
+    click element  xpath://html/body/section[1]/div/ul/li[7]/a
+    sleep  1s
+    input text  name:name  ${username}
+    sleep  1s
+    input text  name:pass  ${pasword}
+    sleep  1s
+    click button  xpath://html/body/div/div/div/div/form/button
+    sleep  3s
+
+add product test case
+    [Documentation]  adding a product
+    [Tags]  add
+    click link  xpath://html/body/nav[1]/div/div/ul/li[1]/a
+    sleep  2s
+    click link  xpath://html/body/nav[2]/div/div/a[2]
+    sleep  1s
+    input text  name:pid  ${pid}
+    sleep  1s
+    input text  name:bname  ${bname}
+    sleep  1s
+    input text  name:pname  ${pname}
+    sleep  1s
+    choose file  name:img  C:/Users/yashi/PycharmProjects/FarmEasy/static/uploads/kurkure.jpg
+    sleep  1s
+    input text  name:price  ${price}
+    sleep  1s
+    click button  xpath://html/body/div/div/div/form/table/tbody/tr[7]/td[2]/button
+    sleep  1s
+    click link  xpath://html/body/nav[1]/div/div/ul/li[1]/a
+    sleep  1s
+
+search product test case
+    [Documentation]  search a product
+    [Tags]  search
+    click link  xpath://html/body/nav[2]/div/div/a[1]
+    sleep  2s
+    input text  name:pid  ${productid}
+    sleep  1s
+    click button  xpath://html/body/div[1]/div/form/table/tbody/tr[2]/td[2]/button
+    sleep  3s
+
+delete product test case
+    [Documentation]  deleting a product
+    [Tags]  delete
+    click link  xpath://html/body/nav/div/div/ul/li[1]/a
+    sleep  3s
+    click link  xpath://html/body/div/div/div/table/tbody/tr[5]/td[5]/a
+    sleep  3s
+    click link  xpath://html/body/div/div/div/table/tbody/tr[6]/td[5]/a
+    sleep  3s
+    click link  xpath://html/body/nav[1]/div/div/ul/li[2]/a
+    sleep  2s
+    click link  xpath://html/body/nav[1]/div/div/ul/li[3]/a
+    sleep  2s
 
 user sign up test case
     [Documentation]  user signup
     [Tags]  user
-    open browser  ${url}  chrome
-    maximize browser window
-    sleep  2s
-    click link  xpath://html/body/section[1]/div/ul/li[5]/a
+    click link  xpath://html/body/section[1]/div/ul/li[4]/a
     sleep  1s
     input text  name:firstname  abc
     sleep  1s
