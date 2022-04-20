@@ -30,6 +30,6 @@ user login test case
 viewall products test case
     [Documentation]  view all products
     [Tags]  viewall
-    Click Button  xpath://html/body/section[2]/div[4]/a/button
+    Click Element  class:btn btn-light
     sleep  2s
-    close browser
+    Close Browser
